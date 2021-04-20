@@ -1,0 +1,7 @@
+Consulta
+Cedula: 40000487788 Cliente: Luna Solaris
+
+Fecha | Vendedor | TipoCompra | Cantidad | PrcioUnitario | Total | 
+2018-02-09| La Nacional| Credito| 1| 20| 20| 
+
+Total General: 20

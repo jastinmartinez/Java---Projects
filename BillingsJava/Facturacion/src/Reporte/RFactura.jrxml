@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="396" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e94b2882-c001-4ba4-8a24-8185f13d9456">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Datos" uuid="ffc5a78c-a878-48a2-89fe-c0dbeb38a732">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     Exportacion."cedula" AS Exportacion_cedula,
+     Exportacion."Fecha" AS Exportacion_Fecha,
+     Exportacion."Vendedor" AS Exportacion_Vendedor,
+     Exportacion."TipoCompra" AS Exportacion_TipoCompra,
+     Exportacion."Cantidad" AS Exportacion_Cantidad,
+     Exportacion."PrecioUnitario" AS Exportacion_PrecioUnitario,
+     Exportacion."Total" AS Exportacion_Total
+FROM
+     "dbo"."Exportacion" Exportacion]]>
+		</queryString>
+		<field name="Exportacion_cedula" class="java.lang.String"/>
+		<field name="Exportacion_Fecha" class="java.sql.Date"/>
+		<field name="Exportacion_Vendedor" class="java.lang.String"/>
+		<field name="Exportacion_TipoCompra" class="java.lang.String"/>
+		<field name="Exportacion_Cantidad" class="java.lang.Integer"/>
+		<field name="Exportacion_PrecioUnitario" class="java.lang.Integer"/>
+		<field name="Exportacion_Total" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="NFac" class="java.lang.Integer" isForPrompting="true">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Exportacion."NoFactura" AS Exportacion_NoFactura,
+     Exportacion."cedula" AS Exportacion_cedula,
+     Exportacion."nombre" AS Exportacion_nombre,
+     Exportacion."Fecha" AS Exportacion_Fecha,
+     Exportacion."Vendedor" AS Exportacion_Vendedor,
+     Exportacion."TipoCompra" AS Exportacion_TipoCompra,
+     Exportacion."Cantidad" AS Exportacion_Cantidad,
+     Exportacion."PrecioUnitario" AS Exportacion_PrecioUnitario,
+     Exportacion."Total" AS Exportacion_Total
+FROM
+     "dbo"."Exportacion" Exportacion where NoFactura = $P{NFac}]]>
+	</queryString>
+	<field name="Exportacion_NoFactura" class="java.lang.Integer"/>
+	<field name="Exportacion_cedula" class="java.lang.String"/>
+	<field name="Exportacion_nombre" class="java.lang.String"/>
+	<field name="Exportacion_Fecha" class="java.sql.Date"/>
+	<field name="Exportacion_Vendedor" class="java.lang.String"/>
+	<field name="Exportacion_TipoCompra" class="java.lang.String"/>
+	<field name="Exportacion_Cantidad" class="java.lang.Integer"/>
+	<field name="Exportacion_PrecioUnitario" class="java.lang.Integer"/>
+	<field name="Exportacion_Total" class="java.lang.Integer"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="612" height="80" backcolor="#333333" uuid="24ddc47f-e97a-4d31-a68d-a5a7d2ee5481"/>
+			</rectangle>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="484" y="5" width="126" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="76f3bc65-d540-42d5-98ab-3f1106b5737e"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="266" y="-1" width="80" height="80" uuid="f511d768-6b90-4ed1-806c-c28226ec3519"/>
+				<imageExpression><![CDATA["C:\\Users\\jamartinez\\Documents\\UNAPEC\\2018Enero\\INF111\\Projectos\\Facturacion\\src\\Images\\Producto.png"]]></imageExpression>
+			</image>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="6" y="32" width="108" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="bd369712-1cac-4bc6-ad7e-1039e47e29a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_Fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="6" y="8" width="108" height="22" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="b7e560ea-9c37-4fe7-8a86-c15aa8a62095"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Fecha Factura]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="610" height="33" backcolor="#FF0000" uuid="3d9b1c3e-b1ce-4618-bea4-620d953806ea"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="239" y="3" width="130" height="28" forecolor="#FFFFFF" uuid="82e994cb-715d-45cd-9f70-008326776da2"/>
+				<textElement>
+					<font fontName="Cambria" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa Demo]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="245" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="91" y="44" width="449" height="148" uuid="f75470e5-f48d-4860-8af2-44a8c5c4bf63"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="125" y="50" width="100" height="20" uuid="05f0032e-a895-458f-a389-28503deb50e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cedula]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="70" width="100" height="20" uuid="6636596d-08c5-4e07-b3dd-9fed6eb2c2f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_cedula}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="238" y="50" width="126" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="50c21ca1-4618-4c3a-bfdf-e4f57fec6364"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="238" y="70" width="126" height="20" uuid="36c6947e-3595-45ca-b25d-4a7c0001a107"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="375" y="49" width="135" height="20" uuid="34660720-dc50-494a-a665-f35177e1a545"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendedor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="69" width="135" height="20" uuid="a3664612-0379-4211-ad7f-6166b7589abc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_Vendedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="122" width="117" height="20" uuid="d4034901-11ba-4b25-8147-6cdf5031d95f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_TipoCompra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="108" y="102" width="117" height="20" uuid="8dbcd8f4-18dc-4759-8ba5-43a570171759"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo De Compra]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="122" width="111" height="20" uuid="174366d8-d0fb-4f1f-a6a0-49ed4fef6a4b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_Cantidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="253" y="102" width="111" height="20" uuid="5e337193-e847-4443-ab10-753ffbba7cbb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="102" width="135" height="20" uuid="d15d3254-db08-4742-a80a-87475fd724ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio Unitario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="377" y="122" width="135" height="20" uuid="6035754c-7b4a-4e86-b47b-2a41115419fa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_PrecioUnitario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="249" y="152" width="126" height="20" uuid="56dd7385-4651-440b-a17f-b6fb2ac7ff6c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="249" y="172" width="126" height="20" uuid="4b561a05-6d21-4d26-a9da-4c6579b23b67"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_Total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="241" y="4" width="130" height="20" uuid="30ba4065-870b-476f-b230-df1c5679c6f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Factura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="241" y="24" width="130" height="20" uuid="8e2380bb-0088-45c0-a88a-dfc91b564546"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exportacion_NoFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="581" y="225" width="31" height="20" uuid="0bc775d9-d49b-4614-8982-08edd0d4af78"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="219" y="222" width="189" height="1" uuid="74a1cda3-6c81-49e4-86b1-16a6a4add236"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="265" y="224" width="97" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="6b16ba1c-1a77-4069-b978-22006b9de127"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Firma Cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+</jasperReport>
